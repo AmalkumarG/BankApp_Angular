@@ -1,0 +1,7 @@
+<div *ngIf="item" class="text-center">
+    <h1 >Are you sure you want to delete {{item}}?</h1>
+    <button class="btn btn-success" (click)="delete()">yes</button>
+    <button class="btn btn-danger" (click)="cancel()">no</button>
+
+
+</div>

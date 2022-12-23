@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-4"></div>
+    <div
+      class="col-4 shadow-lg mt-5 p-3 rounded"
+      style="background-color: rgb(214, 214, 235)"
+      [formGroup]="loginForm"
+    >
+      <div class="text-center">
+        <img
+          src="../../assets/Images/banksvg.svg"
+          height="70px"
+          class="rounded "
+          alt="..."
+        />
+      </div>
+      <p class="text-center fw-bold">My Bank</p>
+      <p class="text-center fw-bold">{{aim}}</p>
+
+      
+      <div class="input-group mb-3">
+        <input
+          formControlName="acno"
+          type="text"
+          class="form-control shadow-lg"
+          
+          [placeholder]="aim"
+         
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched" style="color: red;">Invalid account num</div>
+      <div class="input-group mb-3">
+        <input
+        formControlName="pass"
+          type="password"
+          
+          class="form-control shadow-lg"
+          placeholder="password"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <div *ngIf="this.loginForm.get('pass')?.errors&&this.loginForm.get('pass')?.touched" style="color: red;">Invalid password</div>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary shadow-lg" type="button" (click)="login()">LogIn</button>
+      </div>
+      <div>
+          <p class="d-inline p-2 "><a routerLink="">ForgotPassword</a></p>
+          <p class="d-inline p-2 ">OR</p>
+          <p class="d-inline p-2 "><a routerLink="register">SignUp</a></p>
+
+      </div>
+    </div>
+    <div class="col-4"></div>
+  </div>

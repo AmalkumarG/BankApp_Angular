@@ -1,0 +1,61 @@
+<div class="row">
+    
+    <div class="col-4"></div>
+    <div
+      class="col-4 shadow-lg mt-5 p-3 rounded"
+      style="background-color: rgb(214, 214, 235)"
+      [formGroup]="registerForm"
+    >
+      <div class="text-center">
+        <img
+          src="../../assets//Images/banksvg.svg"
+          height="70px"
+          class="rounded shadow-lg"
+          alt="..."
+        />
+      </div>
+      <p class="text-center fw-bold">My Bank</p>
+      <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control shadow-lg"
+            formControlName="uname"
+            placeholder="username"
+            id="regUname"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+          />
+        </div>
+        <div *ngIf="this.registerForm.get('uname')?.errors&&this.registerForm.get('uname')?.touched" style="color: red;">invalid username</div>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control shadow-lg"
+          formControlName="acno"
+          placeholder="Account Number"
+          id="regAcno"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <div *ngIf="this.registerForm.get('acno')?.errors&&this.registerForm.get('acno')?.touched" style="color: red;">invalid account num</div>
+      <div class="input-group mb-3">
+        <input
+          type="password"
+          class="form-control shadow-lg"
+          formControlName="pass"
+          id="regPassword"
+          placeholder="password"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <div *ngIf="this.registerForm.get('pass')?.errors&&this.registerForm.get('pass')?.touched" style="color: red;">invalid password</div>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary shadow-lg" (click)="register()" type="button">Register</button>
+      </div>
+      <p class="text-center m-2"><a routerLink="">SignIn</a></p>
+      
+    </div>
+    <div class="col-4"></div>
+  </div>

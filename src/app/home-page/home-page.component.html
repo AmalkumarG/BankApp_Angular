@@ -1,0 +1,133 @@
+<button type="button" (click)="logOut()" class="btn btn-primary" style="float: right;">LogOut</button>
+<button type="button" (click)="delete()" class="btn btn-primary" style="float: right;">delete</button>
+
+    <h1>Welcome {{user}}</h1>
+    <a routerLink="/transaction">View your transaction</a>
+    <app-delete [item]="acno" (onCancel)="onCancel()" (onDelete)="onDelete($event)"></app-delete>
+    <div class="row p-5" [formGroup]="depositeForm" [ngClass]="acno?'style1':''">
+    <div
+      class="col-6 p-5 " >
+    <div  class="shadow-lg mt-2 p-5 rounded " 
+    style="background-color: rgb(214, 214, 235);">
+    <div class="text-center">
+        <img
+          src="../../assets/Images/banksvg.svg"
+          height="70px"
+          class="rounded "
+          alt="..."
+        />
+      </div>
+      <p class="text-center fw-bold">Deposite</p>
+     
+
+      
+      <div class="input-group mb-3">
+        <input
+          formControlName="acno"
+          type="text"
+          class="form-control shadow-lg"
+          
+          placeholder="Account number"
+         
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <div *ngIf="this.depositeForm.get('acno')?.errors&&this.depositeForm.get('acno')?.touched" style="color: red;">Invalid account num</div>
+      <div class="input-group mb-3">
+        <input
+        formControlName="pass"
+          type="password"
+          
+          class="form-control shadow-lg"
+          placeholder="password"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <div *ngIf="this.depositeForm.get('pass')?.errors&&this.depositeForm.get('pass')?.touched" style="color: red;">Invalid password</div>
+      <div class="input-group mb-3">
+        <input
+        formControlName="amount"
+          type="text"
+          class="form-control shadow-lg"
+          
+          placeholder="Amount"
+         
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <div *ngIf="this.depositeForm.get('amount')?.errors&&this.depositeForm.get('amount')?.touched" style="color: red;">Invalid amount</div>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary shadow-lg" type="button" (click)="Deposite()">Deposite</button>
+      </div>
+    </div>
+       
+       
+  
+      
+    </div>
+    <div
+    class="col-6 p-5 " >
+  <div  class="shadow-lg mt-2 p-5 rounded " 
+  style="background-color: rgb(214, 214, 235);">
+  <div class="text-center">
+      <img
+        src="../../assets/Images/banksvg.svg"
+        height="70px"
+        class="rounded "
+        alt="..."
+      />
+    </div>
+    <p class="text-center fw-bold">Withdraw</p>
+   
+
+    
+    <div class="input-group mb-3">
+      <input
+      formControlName="wacno"
+        type="text"
+        class="form-control shadow-lg"
+        
+        placeholder="Account number"
+       
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+      />
+    </div>
+    <div *ngIf="this.depositeForm.get('wacno')?.errors&&this.depositeForm.get('wacno')?.touched" style="color: red;">Invalid account num</div>
+    <div class="input-group mb-3">
+      <input
+      formControlName="wpass"
+        type="password"
+        
+        class="form-control shadow-lg"
+        placeholder="password"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <input
+      formControlName="wamount"
+        type="text"
+        
+        class="form-control shadow-lg"
+        placeholder="Amount"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+      />
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-primary shadow-lg" type="button" (click)="WithDraw()">WithDraw</button>
+    </div>
+  </div>
+     
+     
+
+    
+  </div>
+   
+  </div>
+
